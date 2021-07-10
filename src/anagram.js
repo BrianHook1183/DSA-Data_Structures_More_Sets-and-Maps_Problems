@@ -1,3 +1,11 @@
+/* 
+Given two strings "s1" and "s2", determine if the two strings are anagrams of each other or not.
+
+Two words are anagrams of each other if they are both spelled with the letters. For example, the words "race" and "care" are anagrams.
+
+Write a function that returns true if the two strings are anagrams of each other, false otherwise.
+*/
+
 /**
  * Return true if s1 is an anagram of s2
  * @param {string} s1

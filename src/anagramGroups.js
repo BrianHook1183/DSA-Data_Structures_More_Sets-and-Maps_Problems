@@ -1,3 +1,9 @@
+/* 
+Given a list of words, group the words into anagram groups. That is, place all words in the list that are anagrams of each other into a group.
+
+For example, if the input was ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race'], the output should be: [['east', 'teas', 'eats'], ['cars', 'arcs'], ['acre', 'race']].
+*/
+
 /**
  * Return a grouping of words by whether they are anagrams of each other or not
  * @param {array} words to be grouped

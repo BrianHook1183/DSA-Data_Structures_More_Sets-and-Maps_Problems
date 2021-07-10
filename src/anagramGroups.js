@@ -17,9 +17,7 @@ function anagramGroups(words) {
     wordLowerArray.forEach((letter) => {
       if (wordMap.has(letter)) {
         const count = wordMap.get(letter);
-        wordMap.set(letter, count + 1);
-      } else {
-        wordMap.set(letter, 1);
+        wordMap.set(letter, count ? count + 1 : 1);
       }
     });
     // console.log(word, wordMap);

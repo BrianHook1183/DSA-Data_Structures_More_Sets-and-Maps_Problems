@@ -13,19 +13,20 @@ function permutationPalindrome(word) {
     const wordLowerArray = word.toLowerCase().split("");
 
     wordLowerArray.forEach((letter) => {
-      if (wordMap.has(letter)) {
+      // if (wordMap.has(letter)) {
         const count = wordMap.get(letter);
-        wordMap.set(letter, count + 1);
-      } else {
-        wordMap.set(letter, 1);
-      }
+        wordMap.set(letter, count ? count + 1 : 1);
+      // } 
+      // else {
+      //   wordMap.set(letter, 1);
+      // }
     });
     return wordMap;
   };
   // end of anagramMap() helper function
-
-  // console.log("word", word);
-  // console.log(anagramMap(word));
+  const wordMap = anagramMap(word);
+  console.log("word", word);
+  console.log("wordMap", wordMap);
 }
 
 module.exports = permutationPalindrome;

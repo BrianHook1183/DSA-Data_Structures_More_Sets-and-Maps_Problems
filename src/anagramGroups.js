@@ -9,36 +9,19 @@ For example, if the input was ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', '
  * @param {array} words to be grouped
  */
 function anagramGroups(words) {
-  // Helper function [modified from "Are 2 strings Anagrams?"]
-  const anagramMap = (word) => {
-    const wordMap = new Map();
-    const wordLowerArray = word.toLowerCase().split("");
+  const anagramMap = new Map();
 
-    wordLowerArray.forEach((letter) => {
-      if (wordMap.has(letter)) {
-        const count = wordMap.get(letter);
-        wordMap.set(letter, count ? count + 1 : 1);
-      }
-    });
-    // console.log(word, wordMap);
-    return wordMap;
-  };
-  // end of anagramMap() helper function
+  words.forEach((ogWord) => {
+    const wordLowerSorted = ogWord.toLowerCase().split("").sort().join("");
+    const group = anagramMap.get(wordLowerSorted);
 
-  // creates a map out of each word
-  //TODO these maps all need to be stored in another global structure and to be accessed to see which ones are the same, when two maps are the same, you push the word into an array.
-  words.forEach((word) => {
-    if (word) {
-      const wordMap = anagramMap(word);
-    }
+    anagramMap.set(wordLowerSorted, group ? [...group, ogWord] : [ogWord]);
   });
 
-  //! just to clear errors while debugging
-  return [
-    ["east", "teas", "eats"],
-    ["cars", "arcs"],
-    ["acre", "race"],
-  ];
+  const anagramObject = Object.fromEntries(anagramMap);
+  const groupedWords = Object.values(anagramObject);
+
+  return groupedWords;
 }
 
 module.exports = anagramGroups;
